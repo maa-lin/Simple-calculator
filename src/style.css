@@ -17,6 +17,7 @@ body {
   font-weight: 450;
   background-color: whitesmoke;
   color: rgb(89, 34, 53);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #app {
@@ -35,6 +36,7 @@ body {
   border-radius: 15px;
   background-color: whitesmoke;
   box-shadow: 2px 2px 10px rgb(199, 199, 199);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .grid-item {
@@ -47,6 +49,7 @@ body {
   border-radius: 50px;
   background-color: rgb(250, 221, 249);
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
     background-color: rgb(255, 195, 250);
@@ -59,6 +62,7 @@ body {
 
 .number {
   background-color: rgb(255, 237, 255);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #user-input {
@@ -70,6 +74,7 @@ body {
   background-color: whitesmoke;
   border-radius: 15px;
   pointer-events: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #clear {
