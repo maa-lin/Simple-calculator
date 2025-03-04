@@ -153,6 +153,15 @@ input:checked + .slider:before {
   .grid-item {
     background-color: rgb(43, 28, 41);
     border: 1px solid rgb(119, 40, 113);
+
+    &:hover {
+      background-color: rgb(119, 40, 113);
+      color: whitesmoke;
+    }
+
+    &:active {
+      box-shadow: 0px 0px 5px rgb(72, 50, 71);
+    }
   }
 
   .number,
