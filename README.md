@@ -11,7 +11,7 @@ This is a Vite-project, you need to have Node.js (https://nodejs.org/en) install
 
 **In a terminal:**
 
-1. `git clone https://github.com/maa-lin/Guess-the-number.git`
-2. `cd Guess-the-number`
+1. `git clone https://github.com/maa-lin/Simple-calculator.git`
+2. `cd Simple-calculator`
 3. `npm install`
 4. `npm run dev` (Once the server is running, you should see a clickable URL in your terminal)
