@@ -32,6 +32,9 @@ const operation = (x, y, operator) => {
 let x = 0;
 let y = 0;
 let operator = "";
+let operatorUsed = false;
+let decimalUsed = false;
+
 const calculator = document.getElementById("calculator");
 const input = document.getElementById("user-input");
 const buttons = calculator.getElementsByTagName("div");
@@ -42,29 +45,70 @@ for (let i = 0; i < buttons.length; i++) {
 
     if (btn === "clear") {
       input.value = "";
+      operator = "";
+      decimalUsed = false;
+      operatorUsed = false;
     }
+
     if (btn === "delete") {
+      const removedChar = input.value.slice(-1);
       input.value = input.value.slice(0, -1);
+
+      if (removedChar === ".") {
+        decimalUsed = false;
+      }
+
+      if (
+        removedChar === "+" ||
+        removedChar === "-" ||
+        removedChar === "x" ||
+        removedChar === "/"
+      ) {
+        operatorUsed = false;
+        operator = "";
+      }
     }
+
     if (btn === "decimal") {
-      input.value += ".";
+      if (!decimalUsed) {
+        input.value += ".";
+        decimalUsed = true;
+      }
     }
+
     if (btn === "plus") {
-      input.value += "+";
-      operator = "+";
+      if (!operatorUsed && input.value !== "") {
+        input.value += "+";
+        operator = "+";
+        decimalUsed = false;
+        operatorUsed = true;
+      }
     }
     if (btn === "minus") {
-      input.value += "-";
-      operator = "-";
+      if (!operatorUsed && input.value !== "") {
+        input.value += "-";
+        operator = "-";
+        decimalUsed = false;
+        operatorUsed = true;
+      }
     }
     if (btn === "multiply") {
-      input.value += "x";
-      operator = "x";
+      if (!operatorUsed && input.value !== "") {
+        input.value += "x";
+        operator = "x";
+        decimalUsed = false;
+        operatorUsed = true;
+      }
     }
     if (btn === "divide") {
-      input.value += "/";
-      operator = "/";
+      if (!operatorUsed && input.value !== "") {
+        input.value += "/";
+        operator = "/";
+        decimalUsed = false;
+        operatorUsed = true;
+      }
     }
+
     if (btn === "zero") {
       input.value += "0";
     }
@@ -95,11 +139,14 @@ for (let i = 0; i < buttons.length; i++) {
     if (btn === "nine") {
       input.value += "9";
     }
+
     if (btn === "equals") {
       const splitInput = input.value.split(operator);
       const x = +splitInput[0];
       const y = +splitInput[1];
       input.value = operation(x, y, operator);
+      decimalUsed = input.value.includes(".");
+      operatorUsed = false;
     }
   });
 }
